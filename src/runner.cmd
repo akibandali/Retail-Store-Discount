@@ -1,0 +1,1 @@
+java -jar retail-store-1.0.0-SNAPSHOT-jar-with-dependencies.jar
