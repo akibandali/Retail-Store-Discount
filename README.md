@@ -35,6 +35,5 @@ Run "runner.cmd"
 See the output on console.
 ```
 #### Prerequisite
-Java should be installed on system.
-Maven.
+Java and Maven should be installed on system.
 Do not change the "Bill.json" file structure and name.
