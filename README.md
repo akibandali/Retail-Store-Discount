@@ -34,3 +34,7 @@ Now make the changes in "Bill.json" accordingly
 Run "runner.cmd"
 See the output on console.
 ```
+#### Prerequisite
+Java should be installed on system.
+Maven.
+Do not change the "Bill.json" file structure and name.
