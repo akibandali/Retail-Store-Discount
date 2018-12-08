@@ -10,7 +10,6 @@ public class User {
     private boolean isAffiliate;
     private LocalDateTime period;
 
-
     public long getId() {
         return id;
     }
@@ -27,19 +26,19 @@ public class User {
         this.name = name;
     }
 
-    public Boolean getStoreEmployee() {
+    public boolean isStoreEmployee() {
         return isStoreEmployee;
     }
 
-    public void setStoreEmployee(Boolean storeEmployee) {
+    public void setStoreEmployee(boolean storeEmployee) {
         isStoreEmployee = storeEmployee;
     }
 
-    public Boolean getAffiliate() {
+    public boolean isAffiliate() {
         return isAffiliate;
     }
 
-    public void setAffiliate(Boolean affiliate) {
+    public void setAffiliate(boolean affiliate) {
         isAffiliate = affiliate;
     }
 
@@ -49,16 +48,5 @@ public class User {
 
     public void setPeriod(LocalDateTime period) {
         this.period = period;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", isStoreEmployee=" + isStoreEmployee +
-                ", isAffiliate=" + isAffiliate +
-                ", period=" + period +
-                '}';
     }
 }

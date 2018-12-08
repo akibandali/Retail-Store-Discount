@@ -1,24 +1,26 @@
 package com.retail.store.calculator;
 
-import com.retail.store.Constants;
+import com.retail.store.constant.Constants;
 import com.retail.store.common.Bill;
 import com.retail.store.common.BillAmount;
 import com.retail.store.common.Money;
 import com.retail.store.common.NetPayable;
+import com.retail.store.validations.BillValidator;
 import java.time.LocalDateTime;
 
 public class DiscountCalculator {
 
     public NetPayable getNetPayable(Bill bill) {
+        BillValidator.validateBill(bill);
         return getTotalDiscount(bill);
     }
 
-    public NetPayable getTotalDiscount(Bill bill) {
+    private NetPayable getTotalDiscount(Bill bill) {
         float percentageDiscount = 0;
-        if (bill.getUser().getStoreEmployee()) {
+        if (bill.getUser().isStoreEmployee()) {
             percentageDiscount = applyPercentageDiscount(bill.getBillAmount(), Constants.EMPLOYEE_DISCOUNT);
 
-        } else if (bill.getUser().getAffiliate()) {
+        } else if (bill.getUser().isAffiliate()) {
             percentageDiscount = applyPercentageDiscount(bill.getBillAmount(), Constants.AFFILIATE_DISCOUNT);
 
         } else if (isTwoYearsCustomer(bill.getUser().getPeriod())) {
@@ -48,7 +50,9 @@ public class DiscountCalculator {
     }
 
     private float applyPerHundredDiscount(Money totalAmount, int perHundredDiscount) {
-        return ((int) (totalAmount.getValue() / 100)) * perHundredDiscount;
+        int hundreds=(int)totalAmount.getValue() / 100;
+       return  hundreds* perHundredDiscount;
+
     }
 
 
@@ -65,7 +69,7 @@ public class DiscountCalculator {
 
     private static boolean isTwoYearsCustomer(LocalDateTime period) {
         LocalDateTime currentDate = LocalDateTime.now();
-        return period.plusYears(2).isBefore(currentDate);
+        return period.plusYears(Constants.NUMBER_YEARS_FOR_DISCOUNT).isBefore(currentDate);
 
     }
 }
