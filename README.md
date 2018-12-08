@@ -1,10 +1,9 @@
 # Retail Store Discount Calculator
 ======================================
-Clean
 -----
 Build:
 ```bash
-mvn install
+mvn clean install
 ```
 Testing
 -------
