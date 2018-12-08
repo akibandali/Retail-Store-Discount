@@ -24,11 +24,11 @@ Steps:
 maven install
 ```
 ```bash
-Go to target folder
-Copy below two files to target folder
-runner.cmd
-Bill.json
-Open command Prompt window
+Go to "target" folder
+Copy below two files to "target" folder
+  1. runner.cmd
+  2. Bill.json
+Open command Prompt window in "target" folder.
 Now make the changes in "Bill.json" accordingly
 Run "runner.cmd"
 See the output on console.
